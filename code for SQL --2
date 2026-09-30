@@ -1,0 +1,19 @@
+import mysql.connector as mycon
+
+con = mycon.connect(
+    host="localhost", user="root", password="your_password", database="your_database"
+)
+cursor = con.cursor()
+
+query = """
+INSERT INTO fastfood2 VALUES 
+(1, 'Pizza', 101, 300, 450),
+(2, 'Burger', 102, 250, 150),
+(3, 'Pasta', 103, 200, 250)
+"""
+cursor.execute(query)
+con.commit()
+print("3 rows 'fastfood2' is added!")
+
+cursor.close()
+con.close()
